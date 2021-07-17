@@ -10,14 +10,18 @@ interface Props {
 }
 
 const Field: React.FC<Props> = () => {
-    const { cells } = useField({ width: 50, height: 50 });
+    const { cells } = useField({ width: 10, height: 10 });
+
+    const getKey = (item: { x: number; y: number } | undefined) => {
+        return `${item?.y} ${item?.x}`;
+    };
 
     return (
         <div className="row">
-            {cells.map((row) => (
-                <div>
+            {cells.map((row, y) => (
+                <div key={y}>
                     {row.map(({ isAlive, x, y }) => (
-                        <Cell key={x + y} isAlive={isAlive} x={x} y={y} />
+                        <Cell key={getKey({ x, y })} isAlive={isAlive} x={x} y={y} />
                     ))}
                 </div>
             ))}
