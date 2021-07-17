@@ -1,4 +1,7 @@
 import React from 'react';
+import cn from 'classnames';
+
+import './cell.scss';
 
 interface Props {
     isAlive: boolean;
@@ -7,7 +10,13 @@ interface Props {
 }
 
 const CellComponent: React.FC<Props> = ({ isAlive, x, y }) => {
-    return <div>{isAlive ? 1 : 0}</div>;
+    return (
+        <div
+            className={cn('cell', {
+                'is-active': isAlive,
+            })}
+        />
+    );
 };
 
 export default CellComponent;
