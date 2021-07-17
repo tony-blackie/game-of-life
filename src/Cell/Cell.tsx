@@ -9,7 +9,7 @@ interface Props {
     y: number;
 }
 
-const CellComponent: React.FC<Props> = ({ isAlive, x, y }) => {
+const CellComponent: React.FC<Props> = ({ isAlive }) => {
     return (
         <div
             className={cn('cell', {

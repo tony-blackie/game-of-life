@@ -65,7 +65,7 @@ export const createField = (width: number, height: number) => {
 };
 
 export const countNeighbours = (x: number, y: number, cells: Cell[][]): number => {
-    const theoreticNeighbourCoords = [
+    const possibleNeighbourCoords = [
         [x - 1, y - 1],
         [x - 1, y],
         [x - 1, y + 1],
@@ -76,7 +76,7 @@ export const countNeighbours = (x: number, y: number, cells: Cell[][]): number =
         [x + 1, y + 1],
     ];
 
-    const aliveNeighboursCount = theoreticNeighbourCoords
+    const aliveNeighboursCount = possibleNeighbourCoords
         .map(([x, y]) => {
             if (!cells[y]) {
                 return undefined;
@@ -99,4 +99,8 @@ export const willRemainAlive = (x: number, y: number, cells: Cell[][]): boolean 
     const isCellAlive = cells[y][x].isAlive;
 
     return checkIfLivesOn(aliveNeighboursCount, isCellAlive);
+};
+
+export const getKey = (item: { x: number; y: number } | undefined) => {
+    return `${item?.y} ${item?.x}`;
 };
