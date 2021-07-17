@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cell } from '../types';
+import { CellProps } from '../types';
 
 interface Props {
     isAlive: boolean;
@@ -7,8 +7,8 @@ interface Props {
     y: number;
 }
 
-const Cell: React.FC<Cell> = ({ isAlive, x, y }) => {
-    return (<div>{isAlive ? 1 : 0}</div>);
-}
+const Cell: React.FC<CellProps> = ({ isAlive, x, y }) => {
+    return <div>{isAlive ? 1 : 0}</div>;
+};
 
 export default Cell;

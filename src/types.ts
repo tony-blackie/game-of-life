@@ -1,4 +1,4 @@
-export interface Cell {
+export interface CellProps {
     isAlive: boolean;
     x: number;
     y: number;

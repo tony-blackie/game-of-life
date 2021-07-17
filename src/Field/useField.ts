@@ -1,17 +1,17 @@
 import { useState } from 'react';
 
-import { Cell } from '../types';
+import { CellProps } from '../types';
 
 interface Input {
     width: number;
     height: number;
 }
 interface Output {
-    cells: Cell[][];
+    cells: CellProps[][];
 }
 
 interface Field {
-    cells: Cell[][];
+    cells: CellProps[][];
     width: number;
     height: number;
 }
@@ -20,7 +20,7 @@ const createField = (width: number, height: number) => {
     const cells: undefined[][] = new Array(height).fill(new Array(width).fill(undefined));
 
     return cells.map((row, y) => {
-        return row.map((item, x) => ({
+        return row.map((_, x) => ({
             isAlive: false,
             x,
             y,
