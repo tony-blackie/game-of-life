@@ -7,61 +7,13 @@ export const getRandomBool = (): boolean => {
 export const createField = (width: number, height: number) => {
     const cells: undefined[][] = new Array(height).fill(new Array(width).fill(undefined));
 
-    const result = cells.map((row, y) => {
+    return cells.map((row, y) => {
         return row.map((_, x) => ({
             isAlive: getRandomBool(),
             x,
             y,
         }));
     });
-
-    // TODO: Remove testing code
-
-    // test 1
-
-    // result[5][4] = {
-    //     ...result[5][4],
-    //     isAlive: true,
-    // };
-
-    // result[5][5] = {
-    //     ...result[5][5],
-    //     isAlive: true,
-    // };
-
-    // result[5][6] = {
-    //     ...result[5][6],
-    //     isAlive: true,
-    // };
-
-    // test 2
-
-    // result[1][4] = {
-    //     ...result[1][4],
-    //     isAlive: true,
-    // };
-
-    // result[2][5] = {
-    //     ...result[2][5],
-    //     isAlive: true,
-    // };
-
-    // result[3][5] = {
-    //     ...result[3][5],
-    //     isAlive: true,
-    // };
-
-    // result[3][4] = {
-    //     ...result[3][4],
-    //     isAlive: true,
-    // };
-
-    // result[3][3] = {
-    //     ...result[3][3],
-    //     isAlive: true,
-    // };
-
-    return result;
 };
 
 export const countNeighbours = (x: number, y: number, cells: Cell[][]): number => {

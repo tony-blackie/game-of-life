@@ -11,16 +11,10 @@ interface Output {
     cells: Cell[][];
 }
 
-interface Field {
-    cells: Cell[][];
-}
-
-const INTERVAL_TIME = 400 as const;
+const TIME_INTERVAL = 600 as const;
 
 const useField = ({ width, height }: Input): Output => {
-    const [field, setField] = useState<Field>({
-        cells: createField(width, height),
-    });
+    const [cells, setCells] = useState<Cell[][]>(createField(width, height));
 
     const calculateNextIteration = (cells: Cell[][]) => {
         const newCells = cells.map((row) => {
@@ -30,23 +24,21 @@ const useField = ({ width, height }: Input): Output => {
             }));
         });
 
-        setField({
-            cells: newCells,
-        });
+        setCells(newCells);
     };
 
     useEffect(() => {
         const interval = setInterval(() => {
-            calculateNextIteration(field.cells);
-        }, INTERVAL_TIME);
+            calculateNextIteration(cells);
+        }, TIME_INTERVAL);
 
         return () => {
             clearInterval(interval);
         };
-    }, [field.cells, calculateNextIteration]);
+    }, [cells, calculateNextIteration]);
 
     return {
-        cells: field.cells,
+        cells,
     };
 };
 
