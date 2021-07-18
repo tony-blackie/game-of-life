@@ -19,4 +19,4 @@ const CellComponent: React.FC<Props> = ({ isAlive }) => {
     );
 };
 
-export default CellComponent;
+export default React.memo(CellComponent);
