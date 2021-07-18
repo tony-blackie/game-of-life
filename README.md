@@ -1,15 +1,17 @@
 # Game of life
 
-### `yarn`
+`yarn`
+Install dependencies
 
-Installs necessary dependencies
+`yarn start`
+Run the app
 
-### `yarn start`
+`yarn test`
+Run tests
 
-Runs the app in the development mode
+`P.S.` Make sure to check out functional tests in
+/src/Field/\_\_test\_\_/functional.test.ts
 
-### `yarn test`
+They turned pretty cool :)
 
-Launches the test runner in the interactive watch mode.
-
-This project was bootstrapped with [Create React App].
+This project was bootstrapped with Create React App.
