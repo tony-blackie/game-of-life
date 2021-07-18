@@ -1,5 +1,9 @@
 # Game of life
 
+### You need to have YARN installed to run this!
+
+See installation guide here: https://yarnpkg.com/
+
 `yarn`
 Install dependencies
 
