@@ -12,6 +12,6 @@ Run tests
 `P.S.` Make sure to check out functional tests in
 /src/Field/\_\_test\_\_/functional.test.ts
 
-They turned pretty cool :)
+They turned out pretty cool :)
 
 This project was bootstrapped with Create React App.
