@@ -11,12 +11,12 @@ interface Props {
 }
 
 const Field: React.FC<Props> = () => {
-    const { cells } = useField({ width: 10, height: 10 });
+    const { cells } = useField({ width: 50, height: 50 });
 
     return (
-        <div className="row">
+        <div>
             {cells.map((row, rowIndex) => (
-                <div key={rowIndex}>
+                <div key={rowIndex} className="row">
                     {row.map((cell) => {
                         const { x, y, isAlive } = cell;
 

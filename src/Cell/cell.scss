@@ -1,10 +1,14 @@
+$clr-grey: grey;
+$clr-black: black;
+$cell-size: 8px;
+
 .cell {
-    width: 20px;
-    height: 20px;
+    width: $cell-size;
+    height: $cell-size;
     margin: 2px;
-    border: 1px solid grey;
+    border: 1px solid $clr-grey;
 
     &.is-active {
-        background: black;
+        background: $clr-black;
     }
 }
