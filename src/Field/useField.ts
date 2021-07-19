@@ -35,7 +35,7 @@ const useField = ({ width, height }: Input): Output => {
         return () => {
             clearInterval(interval);
         };
-    }, [cells, calculateNextIteration]);
+    });
 
     return {
         cells,
