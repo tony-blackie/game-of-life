@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { createField, willRemainAlive } from './utils';
+import { useInterval } from '../hooks';
 import { Cell } from '../types';
 
 interface Input {
@@ -16,26 +17,22 @@ const TIME_INTERVAL = 600 as const;
 const useField = ({ width, height }: Input): Output => {
     const [cells, setCells] = useState<Cell[][]>(createField(width, height));
 
-    const calculateNextIteration = (cells: Cell[][]) => {
-        const newCells = cells.map((row) => {
-            return row.map((cell) => ({
-                ...cell,
-                isAlive: willRemainAlive(cell.x, cell.y, cells),
-            }));
-        });
+    const calculateNextIteration = () => {
+        setCells((prevСells: Cell[][]) => {
+            const newCells = prevСells.map((row) => {
+                return row.map((cell) => ({
+                    ...cell,
+                    isAlive: willRemainAlive(cell.x, cell.y, cells),
+                }));
+            });
 
-        setCells(newCells);
+            return newCells;
+        });
     };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            calculateNextIteration(cells);
-        }, TIME_INTERVAL);
-
-        return () => {
-            clearInterval(interval);
-        };
-    });
+    useInterval(() => {
+        calculateNextIteration();
+    }, TIME_INTERVAL);
 
     return {
         cells,
